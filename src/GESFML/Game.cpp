@@ -1,14 +1,28 @@
 #include "GESFML/Game.h"
 #include <iostream>
+#include <stdexcept>
 
-using namespace GESFML;
+using namespace std;
 
-Game::Game()
-{
-    std::cout << "Game" << std::endl;
-}
+namespace GESFML{
 
-void Game::Start()
-{
-    std::cout << "Start" << std::endl;
+    void Game::Initialize(std::shared_ptr<State> state)
+    {
+        stateStack.Push(state);
+        updater.ConnectWithAccessor(&stateStack);
+    }
+
+    void Game::Start()
+    {
+        IterateLoop();
+    }
+
+    void Game::IterateLoop()
+    {
+        updater.Update();
+        updater.Update();
+        updater.Update();
+        updater.Update();
+        updater.Update();
+    }
 }

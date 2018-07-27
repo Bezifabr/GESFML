@@ -5,7 +5,10 @@ add_compile_options(-std=c++11)
 
 project(GESFML)
 
+set(GESFML_INCLUDE_DIR & ${CMAKE_CURRENT_SOURCE_DIR}/include/GESFML)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${GESFML_INCLUDE_DIR})
 
 file(GLOB_RECURSE SRC_FILES
     GLOB_CPP_PATTERNS src/*.cpp */GESFML/*.cpp
