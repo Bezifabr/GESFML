@@ -1,6 +1,8 @@
 #ifndef GESFML_STATE_H
 #define GESFML_STATE_H
 
+#include "EntityManager.h"
+
 namespace GESFML{
     
     class StateTransition;
@@ -18,6 +20,7 @@ namespace GESFML{
 
     protected:
         StateTransition* transition = nullptr;
+        EntityManager entityManager;
     };
 }
 
