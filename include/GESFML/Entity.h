@@ -14,12 +14,19 @@ namespace GESFML{
 
 
         std::string name;
+
+        bool alive = true;
     public:
         Entity(std::string name);
         ~Entity();
 
         unsigned long int GetId() const;
         std::string GetName() const;
+
+        bool IsAlive() const { return alive; }
+        void Destroy() { alive = false; }
+
+        
     };
 }
 #endif // GESFML_ENTITY_H
