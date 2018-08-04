@@ -12,7 +12,7 @@ namespace GESFML{
     typedef EntityVector::size_type EntityVectorIndex;
 
     class EntityManager{
-            EntityVector entites;
+            EntityVector entities;
             std::unordered_map<unsigned long int, EntityVectorIndex> entityLookup;
         public:
             unsigned long int Instantiate(std::string name);
