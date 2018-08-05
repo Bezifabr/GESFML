@@ -22,8 +22,11 @@ namespace GESFML{
         }
     }
 
-    void EntityManager::ConnectWithContainer(EntityContainer* container)
+    void EntityManager::Proceed(EntityContainer* container)
     {
         this->container = container;
+        Refresh();
+        Update(0);
+        Draw();
     }
 }

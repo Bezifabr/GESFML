@@ -8,12 +8,13 @@ namespace GESFML{
     {
         EntityContainer* container;
     public:
-
+        void Proceed(EntityContainer* container);
+        
+    private:
         void Update(float elapsedTime);
         void Draw();
         void Refresh();
 
-        void ConnectWithContainer(EntityContainer* container);
 
     };
 }
