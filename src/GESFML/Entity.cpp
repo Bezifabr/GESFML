@@ -1,33 +1,30 @@
 #include "Entity.h"
 
 namespace GESFML{
-
-    unsigned long int Entity::idCount = 0;
-    std::queue<unsigned long int> Entity::removedIdQueue;
+    std::queue<EntityId> Entity::removedIds;
 
     Entity::Entity(std::string name) : name(name)
     {
-        if (!removedIdQueue.empty())
+        if(!removedIds.empty())
         {
-            id = removedIdQueue.front();
-            removedIdQueue.pop();
+            id = removedIds.front();
+            removedIds.pop();
         }
-        else id = idCount++;
+        else id = GetUniqueEntityId();
     }
 
     Entity::~Entity()
     {
-        removedIdQueue.push(id);
+        removedIds.push(id);
     }
 
-    unsigned long int Entity::GetId() const
+    void Entity::Update(float elapsedTime)
     {
-        return id;
+        for(auto& comp : components) comp->Update(elapsedTime);
     }
 
-    std::string Entity::GetName() const
+    void Entity::Draw()
     {
-        return name;
+        for(auto& comp : components) comp->Draw();
     }
-
 }

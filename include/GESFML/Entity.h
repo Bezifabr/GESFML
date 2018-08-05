@@ -1,32 +1,83 @@
 #ifndef GESFML_ENTITY_H
 #define GESFML_ENTITY_H
 
-#include <string>
 #include <queue>
+#include <string>
+#include <array>
+#include <bitset>
+#include <assert.h>
+#include <memory>
+#include "EntityComponent.h"
 
 namespace GESFML{
-        
+
+    constexpr std::size_t maxComponents{32};
+    using ComponentBitset = std::bitset<maxComponents>;
+    using ComponentArray = std::array<EntityComponent*, maxComponents>;
+
+    using EntityId = unsigned long int;
+
     class Entity
     {
-        unsigned long int id;
-        static unsigned long int idCount;
-        static std::queue<unsigned long int> removedIdQueue;
-
+        EntityId id;
+        static std::queue<EntityId> removedIds;
 
         std::string name;
 
         bool alive = true;
+
+        std::vector<std::unique_ptr<EntityComponent>> components;
+        ComponentArray array;
+        ComponentBitset bitset;
     public:
         Entity(std::string name);
         ~Entity();
 
-        unsigned long int GetId() const;
-        std::string GetName() const;
-
+        EntityId GetId() const { return id; }
+        std::string GetName() const { return name; }
         bool IsAlive() const { return alive; }
         void Destroy() { alive = false; }
 
+        void Update(float elapsedTime);
+        void Draw();
+
+        template <typename T>
+        bool HasComponent() const
+        {
+            return bitset[GetComponentTypeId<T>()];
+        }
+
+        template <typename T, typename... TArgs>
+        T& AddComponent(TArgs&&... args)
+        {
+            assert(!HasComponent<T>());
+
+            T* comp(new T(std::forward<TArgs>(args)...));
+            comp->entity = this;
+            std::unique_ptr<EntityComponent> ptr{comp};
+            components.emplace_back(std::move(ptr));
+
+            array[GetComponentTypeId<T>()] = comp;
+            bitset[GetComponentTypeId<T>()] = true;
+
+            comp->Init();
+            return *comp;
+        }
         
+        template <typename T>
+        T& GetComponent() const
+        {
+            assert(HasComponent<T>());
+            auto ptr(array[GetComponentTypeId<T>()]);
+            return *reinterpret_cast<T*>(ptr);
+        }
+
+    private:
+        inline EntityId GetUniqueEntityId()
+        {
+            static EntityId id{0u};
+            return id++;
+        }
     };
 }
 #endif // GESFML_ENTITY_H
