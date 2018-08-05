@@ -20,7 +20,8 @@ namespace GESFML{
 
     protected:
         StateTransition* transition = nullptr;
-        EntityManager entityManager;
+        EntityContainer container;
+        EntityManager manager;
     };
 }
 
