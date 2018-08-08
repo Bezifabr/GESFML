@@ -34,11 +34,14 @@ namespace GESFML{
             {
                 if(event.type == sf::Event::Closed)
                     window.close();
+
+                updater.HandleEvent(event);
             } 
             
+                updater.Update(deltaTime.asSeconds());
                 deltaTime = sf::Time::Zero;
-
                 window.clear();
+                updater.Draw(window);
                 window.display();
         }
     }
