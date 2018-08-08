@@ -10,7 +10,9 @@ public:
     virtual void OnEnter();
     virtual void OnLeave();
 
-    virtual void Update();
+    virtual void OnUpdate();
+    virtual void OnHandleEvent();
+    virtual void OnDraw();
 };
 
 #endif // PLAY_STATE_H

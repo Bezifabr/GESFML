@@ -13,7 +13,17 @@ void PlayState::OnLeave()
     cout << "Play State Left" << endl;
 }
 
-void PlayState::Update()
+void PlayState::OnUpdate()
 {
     cout << "Play State Updated" << endl;
+}
+
+void PlayState::OnHandleEvent()
+{
+
+}
+
+void PlayState::OnDraw()
+{
+    
 }

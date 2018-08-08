@@ -12,7 +12,9 @@ public:
     virtual void OnHide();
     virtual void OnShow();
 
-    virtual void Update();
+    virtual void OnUpdate();
+    virtual void OnHandleEvent();
+    virtual void OnDraw();
 };
 
 #endif // INTRO_STATE_H

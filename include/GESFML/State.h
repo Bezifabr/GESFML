@@ -1,7 +1,7 @@
 #ifndef GESFML_STATE_H
 #define GESFML_STATE_H
 
-#include "EntityManager.h"
+#include "EntityContainer.h"
 
 namespace GESFML{
     
@@ -16,12 +16,18 @@ namespace GESFML{
         virtual void OnShow() {}
         virtual void OnHide() {}
 
-        virtual void Update() = 0;
+        void Update(float elapsedTime);
+        void HandleEvent();
+        void Draw();
+
 
     protected:
         StateTransition* transition = nullptr;
         EntityContainer container;
-        EntityManager manager;
+
+        virtual void OnUpdate() = 0;
+        virtual void OnHandleEvent() = 0;
+        virtual void OnDraw() = 0;
     };
 }
 

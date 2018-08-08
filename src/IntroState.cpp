@@ -25,8 +25,18 @@ void IntroState::OnShow()
     cout << "Intro Revealed" << endl;
 }
 
-void IntroState::Update()
+void IntroState::OnUpdate()
 {
     cout << "Intro Updated" << endl;
     transition->Switch(std::shared_ptr<GESFML::State>(new PlayState()));
+}
+
+void IntroState::OnHandleEvent()
+{
+
+}
+
+void IntroState::OnDraw()
+{
+    
 }

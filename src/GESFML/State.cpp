@@ -10,4 +10,29 @@ namespace GESFML{
         this->transition = transition;
     }
 
+    void State::Update(float elapsedTime)
+    {
+        for(auto& e : container.GetEntities())
+        {
+            if(!e->IsAlive())
+                container.Remove(e->GetId());
+        }
+        
+        for(auto& e : container.GetEntities()) e->Update(elapsedTime);
+
+        OnUpdate();
+    }
+
+    void State::HandleEvent()
+    {
+        OnHandleEvent();
+    }
+
+    void State::Draw()
+    {
+        for(auto& e : container.GetEntities()) e->Draw();
+
+        OnDraw();
+    }
+
 }
