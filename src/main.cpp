@@ -8,10 +8,10 @@
 using namespace std;
 
 struct CTest : GESFML::EntityComponent
-{
-    void Update(float elapsedTime) override { cout << entity->GetId() << " Updated" << endl; }
+{   void Update(sf::Time elapsedTime) override { cout << entity->GetId() << " Updated" << endl; }
     void Init() override { cout << entity->GetId() << " Initialized" << endl; }
 };
+ 
 
 int main()
 {
