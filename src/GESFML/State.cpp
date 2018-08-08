@@ -25,8 +25,10 @@ namespace GESFML{
         OnUpdate();
     }
 
-    void State::HandleEvent()
+    void State::HandleEvent(sf::Event event)
     {
+        this->event = event;
+        
         OnHandleEvent();
     }
 
