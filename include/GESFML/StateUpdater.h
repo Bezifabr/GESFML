@@ -2,6 +2,8 @@
 #define GESFML_STATE_UPDATER_H
 
 #include "StateAccessor.h"
+#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 namespace GESFML{
 
@@ -10,7 +12,9 @@ namespace GESFML{
         StateAccessor* accessor = nullptr;
     public:
         void ConnectWithAccessor(StateAccessor* accessor);
-        void Update();
+        void Update(float elapsedTime);
+        void HandleEvent(sf::Event event);
+        void Draw(sf::RenderTarget& renderTarget);
     };
 }
 
