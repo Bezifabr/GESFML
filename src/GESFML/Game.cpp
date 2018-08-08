@@ -15,7 +15,6 @@ namespace GESFML{
         window.setFramerateLimit(60);
         window.setKeyRepeatEnabled(false);
 
-
     }
 
     void Game::Start()
@@ -44,5 +43,7 @@ namespace GESFML{
                 updater.Draw(window);
                 window.display();
         }
+
+        stateStack.Pop();
     }
 }

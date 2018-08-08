@@ -2,9 +2,11 @@
 #define PLAY_STATE_H
 
 #include "GESFML/State.h"
+#include <SFML/Graphics/Texture.hpp>
 
 class PlayState : public GESFML::State
 {
+    sf::Texture texture;
 public:
 
     virtual void OnEnter();
