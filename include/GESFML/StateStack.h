@@ -15,9 +15,11 @@ namespace GESFML{
     public:
         virtual void Push(std::shared_ptr<State> state);
         virtual void Pop();
-        virtual std::shared_ptr<State> Peek();
 
         virtual void Switch(std::shared_ptr<State> state);
+
+        private:
+        virtual std::shared_ptr<State> Peek();
 
     };
 }
