@@ -28,12 +28,13 @@ namespace GESFML{
     void State::HandleEvent(sf::Event event)
     {
         this->event = event;
-        
+
         OnHandleEvent();
     }
 
-    void State::Draw()
+    void State::Draw(sf::RenderTarget& target)
     {
+        this->renderTarget = &target;
         for(auto& e : container.GetEntities()) e->Draw();
 
         OnDraw();

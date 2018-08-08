@@ -4,6 +4,7 @@
 #include "EntityContainer.h"
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 namespace GESFML{
     
@@ -20,7 +21,7 @@ namespace GESFML{
 
         void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
-        void Draw();
+        void Draw(sf::RenderTarget& target);
 
 
     protected:
@@ -29,6 +30,7 @@ namespace GESFML{
 
         sf::Event event;
         sf::Time elapsedTime;
+        sf::RenderTarget* renderTarget;
 
         virtual void OnUpdate() = 0;
         virtual void OnHandleEvent() = 0;

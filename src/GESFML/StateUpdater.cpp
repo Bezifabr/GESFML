@@ -21,6 +21,6 @@ namespace GESFML{
 
     void StateUpdater::Draw(sf::RenderTarget& target)
     {
-        accessor->Peek()->Draw();
+        accessor->Peek()->Draw(target);
     }
 }
