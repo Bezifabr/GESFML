@@ -4,6 +4,7 @@
 #include "StateAccessor.h"
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/System/Time.hpp>
 
 namespace GESFML{
 
@@ -12,7 +13,7 @@ namespace GESFML{
         StateAccessor* accessor = nullptr;
     public:
         void ConnectWithAccessor(StateAccessor* accessor);
-        void Update(float elapsedTime);
+        void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
         void Draw(sf::RenderTarget& renderTarget);
     };

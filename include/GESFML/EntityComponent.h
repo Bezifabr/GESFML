@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <type_traits>
+#include <SFML/System/Time.hpp>
 
 namespace GESFML{
 
@@ -14,7 +15,7 @@ namespace GESFML{
         Entity* entity;
 
         virtual void Init() {}
-        virtual void Update(float elapsedTime) {}
+        virtual void Update(sf::Time elapsedTime) {}
         virtual void Draw() {}
 
         virtual ~EntityComponent() {}

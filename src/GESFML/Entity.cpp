@@ -18,7 +18,7 @@ namespace GESFML{
         removedIds.push(id);
     }
 
-    void Entity::Update(float elapsedTime)
+    void Entity::Update(sf::Time elapsedTime)
     {
         for(auto& comp : components) comp->Update(elapsedTime);
     }

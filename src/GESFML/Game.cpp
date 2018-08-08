@@ -38,7 +38,7 @@ namespace GESFML{
                 updater.HandleEvent(event);
             } 
             
-                updater.Update(deltaTime.asSeconds());
+                updater.Update(deltaTime);
                 deltaTime = sf::Time::Zero;
                 window.clear();
                 updater.Draw(window);

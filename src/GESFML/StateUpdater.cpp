@@ -2,7 +2,7 @@
 
 namespace GESFML{
 
-    void StateUpdater::Update(float elapsedTime)
+    void StateUpdater::Update(sf::Time elapsedTime)
     {
         accessor->Peek()->Update(elapsedTime);
     }

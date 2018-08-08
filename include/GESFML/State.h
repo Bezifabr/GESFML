@@ -2,6 +2,7 @@
 #define GESFML_STATE_H
 
 #include "EntityContainer.h"
+#include <SFML/System/Time.hpp>
 
 namespace GESFML{
     
@@ -16,7 +17,7 @@ namespace GESFML{
         virtual void OnShow() {}
         virtual void OnHide() {}
 
-        void Update(float elapsedTime);
+        void Update(sf::Time elapsedTime);
         void HandleEvent();
         void Draw();
 
@@ -24,6 +25,8 @@ namespace GESFML{
     protected:
         StateTransition* transition = nullptr;
         EntityContainer container;
+
+        sf::Time elapsedTime;
 
         virtual void OnUpdate() = 0;
         virtual void OnHandleEvent() = 0;

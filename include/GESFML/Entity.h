@@ -38,7 +38,7 @@ namespace GESFML{
         bool IsAlive() const { return alive; }
         void Destroy() { alive = false; }
 
-        void Update(float elapsedTime);
+        void Update(sf::Time elapsedTime);
         void Draw();
 
         template <typename T>

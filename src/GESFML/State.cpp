@@ -10,8 +10,10 @@ namespace GESFML{
         this->transition = transition;
     }
 
-    void State::Update(float elapsedTime)
+    void State::Update(sf::Time elapsedTime)
     {
+        this->elapsedTime = elapsedTime;
+        
         for(auto& e : container.GetEntities())
         {
             if(!e->IsAlive())
