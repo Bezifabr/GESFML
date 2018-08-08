@@ -39,7 +39,7 @@ namespace GESFML{
         void Destroy() { alive = false; }
 
         void Update(sf::Time elapsedTime);
-        void Draw();
+        void Draw(sf::RenderTarget& target);
 
         template <typename T>
         bool HasComponent() const

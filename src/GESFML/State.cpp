@@ -35,7 +35,7 @@ namespace GESFML{
     void State::Draw(sf::RenderTarget& target)
     {
         this->renderTarget = &target;
-        for(auto& e : container.GetEntities()) e->Draw();
+        for(auto& e : container.GetEntities()) e->Draw(target);
 
         OnDraw();
     }
