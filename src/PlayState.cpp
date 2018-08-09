@@ -1,6 +1,6 @@
 #include "PlayState.h"
 #include <iostream>
-#include "SpriteComponent.h"
+#include "Components/SpriteComponent.h"
 
 using namespace std;
 

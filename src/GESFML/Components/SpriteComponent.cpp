@@ -1,4 +1,4 @@
-#include "SpriteComponent.h"
+#include "Components/SpriteComponent.h"
 
 namespace GESFML{
 
