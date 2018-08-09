@@ -1,6 +1,7 @@
 #include "GESFML/Game.h"
 #include <iostream>
 #include <stdexcept>
+#include "Config.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ namespace GESFML{
         stateStack.Push(state);
         updater.ConnectWithAccessor(&stateStack);
 
-        window.create(sf::VideoMode(1000,1000), "GESFML");
+        window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), WINDOW_TITLE);
         window.setFramerateLimit(60);
         window.setKeyRepeatEnabled(false);
 
