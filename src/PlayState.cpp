@@ -8,11 +8,7 @@ void PlayState::OnEnter()
 {
     container.Add("Test");
     auto sprite = container.Get(0).lock();
-    sprite->AddComponent<GESFML::SpriteComponent>();
-
-    texture.loadFromFile("test.png");
-
-    sprite->GetComponent<GESFML::SpriteComponent>().sprite.setTexture(texture);
+    sprite->AddComponent<GESFML::SpriteComponent>("test.png");
 
 
     cout << "Play State Entered" << endl;

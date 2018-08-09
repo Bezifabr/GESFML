@@ -6,7 +6,6 @@
 
 class PlayState : public GESFML::State
 {
-    sf::Texture texture;
 public:
 
     virtual void OnEnter();
