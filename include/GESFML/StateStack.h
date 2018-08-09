@@ -18,7 +18,7 @@ namespace GESFML{
 
         virtual void Switch(std::shared_ptr<State> state);
 
-        private:
+    private:
         virtual std::shared_ptr<State> Peek();
 
     };
