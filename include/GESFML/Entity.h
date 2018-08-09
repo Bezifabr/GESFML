@@ -7,13 +7,13 @@
 #include <bitset>
 #include <assert.h>
 #include <memory>
-#include "EntityComponent.h"
+#include "Component.h"
 
 namespace GESFML{
 
     constexpr std::size_t maxComponents{32};
     using ComponentBitset = std::bitset<maxComponents>;
-    using ComponentArray = std::array<EntityComponent*, maxComponents>;
+    using ComponentArray = std::array<Component*, maxComponents>;
 
     using EntityId = unsigned long int;
 
@@ -26,7 +26,7 @@ namespace GESFML{
 
         bool alive = true;
 
-        std::vector<std::unique_ptr<EntityComponent>> components;
+        std::vector<std::unique_ptr<Component>> components;
         ComponentArray array;
         ComponentBitset bitset;
     public:
@@ -54,7 +54,7 @@ namespace GESFML{
 
             T* comp(new T(std::forward<TArgs>(args)...));
             comp->entity = this;
-            std::unique_ptr<EntityComponent> ptr{comp};
+            std::unique_ptr<Component> ptr{comp};
             components.emplace_back(std::move(ptr));
 
             array[GetComponentTypeId<T>()] = comp;
@@ -63,7 +63,7 @@ namespace GESFML{
             comp->Init();
             return *comp;
         }
-        
+
         template <typename T>
         T& GetComponent() const
         {

@@ -1,11 +1,11 @@
 #ifndef GESFML_SPRITE_COMPONENT_H
 #define GESFML_SPRITE_COMPONENT_H
 
-#include "EntityComponent.h"
+#include "Component.h"
 #include <SFML/Graphics/Sprite.hpp>
 
 namespace GESFML{
-    struct SpriteComponent : public EntityComponent
+    struct SpriteComponent : public Component
     {
         sf::Sprite sprite;
         virtual void Draw(sf::RenderTarget& target) override;
