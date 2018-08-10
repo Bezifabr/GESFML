@@ -23,6 +23,11 @@ namespace GESFML{
         for(auto& comp : components) comp->Update(elapsedTime);
     }
 
+    void Entity::HandleEvent(sf::Event event)
+    {
+        for(auto& comp: components) comp->HandleEvent(event);
+    }
+
     void Entity::Draw(sf::RenderTarget& target)
     {
         for(auto& comp : components) comp->Draw(target);

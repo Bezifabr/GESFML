@@ -28,6 +28,8 @@ namespace GESFML{
     void State::HandleEvent(sf::Event event)
     {
         this->event = event;
+        
+        for(auto& e : container.GetEntities()) e->HandleEvent(event);
 
         OnHandleEvent();
     }
