@@ -18,6 +18,11 @@ namespace GESFML{
         removedIds.push(id);
     }
 
+    void Entity::Refresh()
+    {
+        for(auto& comp : components) comp->Refresh();
+    }
+
     void Entity::Update(sf::Time elapsedTime)
     {
         for(auto& comp : components) comp->Update(elapsedTime);

@@ -5,6 +5,7 @@
 #include <type_traits>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Window/Event.hpp>
 
 namespace GESFML{
 
@@ -16,6 +17,7 @@ namespace GESFML{
         Entity* entity;
 
         virtual void Init() {}
+        virtual void Refresh() {}
         virtual void Update(sf::Time elapsedTime) {}
         virtual void HandleEvent(sf::Event event) {}
         virtual void Draw(sf::RenderTarget& target) {}

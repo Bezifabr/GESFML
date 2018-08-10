@@ -38,6 +38,7 @@ namespace GESFML{
         bool IsAlive() const { return alive; }
         void Destroy() { alive = false; }
 
+        void Refresh();
         void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
         void Draw(sf::RenderTarget& target);

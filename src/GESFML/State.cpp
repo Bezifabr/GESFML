@@ -16,6 +16,8 @@ namespace GESFML{
         
         for(auto& e : container.GetEntities())
         {
+            e->Refresh();
+
             if(!e->IsAlive())
                 container.Remove(e->GetId());
 
