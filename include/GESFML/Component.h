@@ -17,6 +17,7 @@ namespace GESFML{
 
         virtual void Init() {}
         virtual void Update(sf::Time elapsedTime) {}
+        virtual void HandleEvent(sf::Event event) {}
         virtual void Draw(sf::RenderTarget& target) {}
 
         virtual ~Component() {}
