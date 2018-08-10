@@ -18,9 +18,9 @@ namespace GESFML{
         {
             if(!e->IsAlive())
                 container.Remove(e->GetId());
-        }
-        
-        for(auto& e : container.GetEntities()) e->Update(elapsedTime);
+
+            e->Update(elapsedTime);
+        } 
 
         OnUpdate();
     }
