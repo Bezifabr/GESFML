@@ -7,6 +7,11 @@ namespace GESFML{
         accessor->Peek()->Update(elapsedTime);
     }
 
+    void StateUpdater::Refresh()
+    {
+        accessor->Peek()->Refresh();
+    }
+
     void StateUpdater::ConnectWithAccessor(StateAccessor* accessor)
     {
         if(!accessor)

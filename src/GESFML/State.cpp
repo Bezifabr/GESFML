@@ -17,19 +17,23 @@ namespace GESFML{
         this->renderWindow = renderWindow;
     }
 
-    void State::Update(sf::Time elapsedTime)
+    void State::Refresh()
     {
-        this->elapsedTime = elapsedTime;
-        
         for(auto& e : container.GetEntities())
         {
             e->Refresh();
 
             if(!e->IsAlive())
                 container.Remove(e->GetId());
-
-            e->Update(elapsedTime);
         } 
+    }
+
+    void State::Update(sf::Time elapsedTime)
+    {
+        this->elapsedTime = elapsedTime;
+          
+        for(auto& e : container.GetEntities())
+            e->Update(elapsedTime);
 
         OnUpdate();
     }

@@ -20,6 +20,7 @@ namespace GESFML{
         virtual void OnShow() {}
         virtual void OnHide() {}
 
+        void Refresh();
         void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
         void Draw();

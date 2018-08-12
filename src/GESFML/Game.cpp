@@ -31,6 +31,8 @@ namespace GESFML{
         sf::Event event;        
         while(window.isOpen())
         {
+            updater.Refresh();
+
             while(window.pollEvent(event))
             {
                 if(event.type == sf::Event::Closed)
