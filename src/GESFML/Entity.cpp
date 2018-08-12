@@ -33,7 +33,7 @@ namespace GESFML{
         for(auto& comp: components) comp->HandleEvent(event);
     }
 
-    void Entity::Draw(sf::RenderTarget& target)
+    void Entity::Draw(sf::RenderTarget* target)
     {
         for(auto& comp : components) comp->Draw(target);
     }

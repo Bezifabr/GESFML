@@ -8,9 +8,9 @@ namespace GESFML{
         sprite.setTexture(texture);
     }
 
-    void SpriteComponent::Draw(sf::RenderTarget& target)
+    void SpriteComponent::Draw(sf::RenderTarget* target)
     {
-        target.draw(sprite);
+        target->draw(sprite);
     }
 
 }

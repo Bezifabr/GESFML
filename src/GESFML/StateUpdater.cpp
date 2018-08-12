@@ -19,8 +19,8 @@ namespace GESFML{
         accessor->Peek()->HandleEvent(event);
     }
 
-    void StateUpdater::Draw(sf::RenderTarget& target)
+    void StateUpdater::Draw()
     {
-        accessor->Peek()->Draw(target);
+        accessor->Peek()->Draw();
     }
 }

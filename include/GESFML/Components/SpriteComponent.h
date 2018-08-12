@@ -12,7 +12,7 @@ namespace GESFML{
 
         sf::Texture texture;
         sf::Sprite sprite;
-        virtual void Draw(sf::RenderTarget& target) override;
+        virtual void Draw(sf::RenderTarget* target) override;
     };
 }
 

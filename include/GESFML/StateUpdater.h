@@ -15,7 +15,7 @@ namespace GESFML{
         void ConnectWithAccessor(StateAccessor* accessor);
         void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
-        void Draw(sf::RenderTarget& renderTarget);
+        void Draw();
     };
 }
 

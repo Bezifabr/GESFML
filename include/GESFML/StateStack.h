@@ -11,8 +11,10 @@ namespace GESFML{
     class StateStack : public StateTransition, public StateAccessor
     {
         std::stack<std::shared_ptr<State>> states;
+        sf::RenderWindow* renderWindow;
 
     public:
+        void ConnectWithRenderWindow(sf::RenderWindow* renderWindow);
         virtual void Push(std::shared_ptr<State> state);
         virtual void Pop();
 

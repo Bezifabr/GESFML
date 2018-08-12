@@ -7,6 +7,11 @@ using namespace std;
 
 namespace GESFML{
 
+    void StateStack::ConnectWithRenderWindow(sf::RenderWindow* window)
+    {
+        this->renderWindow = window;
+    }
+
     void StateStack::Push(std::shared_ptr<State> state)
     {
         std::shared_ptr<State> topState = Peek();
@@ -17,6 +22,7 @@ namespace GESFML{
         states.push(state);
 
         Peek()->ConnectWithStateTransition(this);
+        Peek()->ConnectWithRenderWindow(renderWindow);
         Peek()->OnEnter();
     }
 

@@ -10,6 +10,13 @@ namespace GESFML{
         this->transition = transition;
     }
 
+    void State::ConnectWithRenderWindow(sf::RenderWindow* renderWindow)
+    {
+        if(!renderWindow)
+            std::runtime_error("State couldn't connect with RenderWindow pointer cause it is empty");
+        this->renderWindow = renderWindow;
+    }
+
     void State::Update(sf::Time elapsedTime)
     {
         this->elapsedTime = elapsedTime;
@@ -36,10 +43,9 @@ namespace GESFML{
         OnHandleEvent();
     }
 
-    void State::Draw(sf::RenderTarget& target)
+    void State::Draw()
     {
-        this->renderTarget = &target;
-        for(auto& e : container.GetEntities()) e->Draw(target);
+        for(auto& e : container.GetEntities()) e->Draw(renderWindow);
 
         OnDraw();
     }

@@ -41,7 +41,7 @@ namespace GESFML{
         void Refresh();
         void Update(sf::Time elapsedTime);
         void HandleEvent(sf::Event event);
-        void Draw(sf::RenderTarget& target);
+        void Draw(sf::RenderTarget* target);
 
         template <typename T>
         bool HasComponent() const

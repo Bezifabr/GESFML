@@ -9,6 +9,7 @@ namespace GESFML{
 
     void Game::Initialize(std::shared_ptr<State> state)
     {
+        stateStack.ConnectWithRenderWindow(&window);
         stateStack.Push(state);
         updater.ConnectWithAccessor(&stateStack);
 
@@ -41,7 +42,7 @@ namespace GESFML{
                 updater.Update(deltaTime);
                 deltaTime = sf::Time::Zero;
                 window.clear();
-                updater.Draw(window);
+                updater.Draw();
                 window.display();
         }
 
