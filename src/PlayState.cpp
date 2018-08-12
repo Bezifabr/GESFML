@@ -23,13 +23,17 @@ void PlayState::OnLeave()
 
 void PlayState::OnUpdate()
 {
-    cout << "Play State Updated" << endl;
+    auto sprite = container.Get(0).lock();
+    if(sprite->GetComponent<GESFML::ClickableComponent>().IsReleased())
+        cout << "Released" << endl;
+    if(sprite->GetComponent<GESFML::ClickableComponent>().IsPressed())
+        cout << "Pressed" << endl;
 }
 
 void PlayState::OnHandleEvent()
 {
-   // auto sprite = container.Get(0).lock();
-  //  sprite->GetComponent<GESFML::ClickableComponent>().CheckIfIsClicked(event, )
+    auto sprite = container.Get(0).lock();
+    sprite->GetComponent<GESFML::ClickableComponent>().CheckIfIsClicked(event, sf::Mouse::getPosition((*renderWindow)));
 }
 
 void PlayState::OnDraw()
