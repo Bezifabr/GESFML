@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Components/SpriteComponent.h"
 #include "Components/ClickableComponent.h"
+#include "Components/CollisionComponent.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ void PlayState::OnEnter()
     sprite->AddComponent<GESFML::SpriteComponent>("test.png");
 
     sprite->AddComponent<GESFML::ClickableComponent>(sprite->GetComponent<GESFML::SpriteComponent>().sprite.getGlobalBounds());
+    sprite->AddComponent<GESFML::CollisionComponent>(sprite->GetComponent<GESFML::SpriteComponent>().sprite.getGlobalBounds());
 
     cout << "Play State Entered" << endl;
 }
@@ -28,6 +30,12 @@ void PlayState::OnUpdate()
         cout << "Released" << endl;
     if(sprite->GetComponent<GESFML::ClickableComponent>().IsPressed())
         cout << "Pressed" << endl;
+
+    sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition((*renderWindow)).x, sf::Mouse::getPosition((*renderWindow)).y);
+
+    if(sprite->GetComponent<GESFML::CollisionComponent>().DetectCollision(mousePos))
+        cout << "Collision!" << endl;
+
 }
 
 void PlayState::OnHandleEvent()
