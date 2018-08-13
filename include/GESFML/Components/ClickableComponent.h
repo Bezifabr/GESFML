@@ -20,6 +20,8 @@ namespace GESFML{
         
         bool IsPressed();
         bool IsReleased();
+
+        void ChangeClickableArea(sf::FloatRect clickableArea);
     };
 }
 

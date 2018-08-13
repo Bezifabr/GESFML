@@ -33,6 +33,9 @@ namespace GESFML{
         return isReleased;
     }
 
-
+    void ClickableComponent::ChangeClickableArea(sf::FloatRect clickableArea)
+    {
+        this->clickableArea = clickableArea;
+    }
 
 }
