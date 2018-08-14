@@ -18,4 +18,9 @@ namespace GESFML{
         return collisionArea.contains(point);
     }
 
+	void CollisionComponent::UpdateCollisionArea(sf::FloatRect collisionArea)
+	{
+		this->collisionArea = collisionArea;
+	}
+
 }

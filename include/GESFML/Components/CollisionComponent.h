@@ -14,6 +14,8 @@ namespace GESFML{
 		CollisionComponent(sf::FloatRect collisionArea, bool collisionOn = true);
 		bool DetectCollision(const sf::FloatRect& rect);
         bool DetectCollision(const sf::Vector2f point);
+
+		void UpdateCollisionArea(sf::FloatRect collisionArea);
     };
 
 }
