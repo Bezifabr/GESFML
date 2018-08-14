@@ -3,9 +3,11 @@
 
 #include "GESFML/State.h"
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Font.hpp>
 
 class PlayState : public GESFML::State
 {
+    sf::Font font;
 public:
 
     virtual void OnEnter();
