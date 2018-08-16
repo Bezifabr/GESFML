@@ -8,7 +8,7 @@ project(GESFML)
 
 file(GLOB_RECURSE SRC_FILES
     GLOB_CPP_PATTERNS src/*.cpp */GESFML/*.cpp
-    GLOB_H_PATTERNS include*.h */GESFML/*.h RECURSE_GROUP
+    GLOB_H_PATTERNS include/*.h */GESFML/*.h RECURSE_GROUP
 )
 
 set(EXE_NAME "GESFML")
