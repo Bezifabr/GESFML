@@ -12,7 +12,7 @@ void PlayState::OnEnter()
 {
     font.loadFromFile("font.ttf");
 
-    container.Add("Test");
+    container.Create("Test");
     auto sprite = container.Get(0).lock();
     sprite->AddComponent<GESFML::SpriteComponent>("test.png");
     sprite->AddComponent<GESFML::TextComponent>("Test", &font, sf::Vector2f(200,200), 50, sf::Color::Red);
