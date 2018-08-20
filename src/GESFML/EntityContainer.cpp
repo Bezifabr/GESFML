@@ -43,4 +43,10 @@ namespace GESFML{
 	{
 		return entities[entities.size() - 1];
 	}
+
+	void EntityContainer::RemoveEntities()
+	{
+		entityLookup.clear();
+		entities.clear();
+	}
 }
