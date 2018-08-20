@@ -38,8 +38,8 @@ void PlayState::OnUpdate()
 
     sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition((*renderWindow)).x, sf::Mouse::getPosition((*renderWindow)).y);
 
-    if(sprite->GetComponent<GESFML::CollisionComponent>().DetectCollision(mousePos))
-        cout << "Collision!" << endl;
+  //  if(sprite->GetComponent<GESFML::CollisionComponent>().DetectCollision(mousePos))
+      //  cout << "Collision!" << endl;
 
 }
 
