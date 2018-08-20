@@ -39,4 +39,8 @@ namespace GESFML{
 
         }
     }
+	std::weak_ptr<Entity> EntityContainer::GetLastCreatedEntity()
+	{
+		return entities[entities.size() - 1];
+	}
 }

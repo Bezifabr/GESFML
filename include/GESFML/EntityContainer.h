@@ -21,6 +21,8 @@ namespace GESFML{
         std::weak_ptr<Entity> Get(EntityId id);
         void Remove(EntityId id);
 
+		std::weak_ptr<Entity> GetLastCreatedEntity();
+
         const EntityVector & GetEntities() const { return entities; }
 
     };
