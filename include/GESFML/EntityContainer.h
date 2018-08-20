@@ -16,10 +16,13 @@ namespace GESFML{
         std::unordered_map<EntityId, EntityVectorIndex> entityLookup;
     public:
         EntityId Create(std::string name);
+		EntityId Add(std::shared_ptr<Entity> entity);
+
         std::weak_ptr<Entity> Get(EntityId id);
         void Remove(EntityId id);
 
         const EntityVector & GetEntities() const { return entities; }
+
     };
 }
 #endif // GESFML_ENTITY_CONTAINER_H
